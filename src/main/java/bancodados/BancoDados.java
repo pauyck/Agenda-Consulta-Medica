@@ -16,7 +16,7 @@ public class BancoDados {
 
 		// Obter uma conexão com o banco de dados.
 		// URL de conexão com o banco de dados Derby local.
-		String url = "jdbc:derby:C:\\banco-de-teste;create=true";
+		String url = "jdbc:derby:C:\\agendamedica;create=true";
 		Connection conn = DriverManager.getConnection(url);
 
 		// conn.setAutoCommit(false);
@@ -38,7 +38,7 @@ public class BancoDados {
 	}
 
 	private static void listarAlunos(Connection conn) throws SQLException {
-		String sql = "select * from aluno order by matricula";
+		String sql = "select * from aluno order by id";
 		// Obtém referência para uma sentença SQL.
 		PreparedStatement prepareStatement = conn.prepareStatement(sql);
 		// Executa a instrução SQL.

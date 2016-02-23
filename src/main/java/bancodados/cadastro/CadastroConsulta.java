@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(value = "/agendar")
+@WebServlet(value = "/")
 public class CadastroConsulta extends HttpServlet {
 
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -35,32 +35,32 @@ public class CadastroConsulta extends HttpServlet {
 		String acao = paramAcao == null ? "" : paramAcao;
 		
 
-		ConsultasMedicas ordemDeServico = new ConsultasMedicas();
-		ordemDeServico.setId(id);
-		ordemDeServico.setNomePaciente(nomePaciente);
-		ordemDeServico.setData(data);
-		ordemDeServico.setHorario(horario);
-		ordemDeServico.setTelefone(telefone);
-		ordemDeServico.setObservacao(observacao);
+		ConsultasMedicas consultaMedica = new ConsultasMedicas();
+		consultaMedica.setId(id);
+		consultaMedica.setNomePaciente(nomePaciente);
+		consultaMedica.setData(data);
+		consultaMedica.setHorario(horario);
+		consultaMedica.setTelefone(telefone);
+		consultaMedica.setObservacao(observacao);
 
 		if (acao.equals("Incluir")) {
 			if (!id.equals("")) {
-				ordemDeServico.incluir();
+				consultaMedica.incluir();
 			}
 		} else if (acao.equals("Alterar")) {
 			if (!id.equals("")) {
-				ordemDeServico.alterar(id, nomePaciente, data, horario, telefone, observacao);
+				consultaMedica.alterar(id, nomePaciente, data, horario, telefone, observacao);
 			}
 		} else if (acao.equals("Excluir")) {
 			if (!id.equals("")) {
-				ordemDeServico.excluir(id);
+				consultaMedica.excluir(id);
 			}
 		}
 
-		req.setAttribute("ordemDeServico", ordemDeServico); // Passando um objeto para o JSP.
+		req.setAttribute("consultaMedica", consultaMedica); // Passando um objeto para o JSP.
 
-		List<ConsultasMedicas> ordemDeServicos = ConsultasMedicas.listar();
-		req.setAttribute("ordemDeServicos", ordemDeServicos); // Passando uma coleção para o
+		List<ConsultasMedicas> consultaMedica1 = ConsultasMedicas.listar();
+		req.setAttribute("consultaMedica", consultaMedica1); // Passando uma coleção para o
 											// JSP.
 
 		// Chamar o JSP apenas para mostrar o resultado.

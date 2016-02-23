@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Tue Feb 23 11:21:43 BRT 2016:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0153-0e81-d53d-0000052c7738 
+Tue Feb 23 12:10:33 BRT 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0153-0eae-8d10-0000055840e0 
 on database directory C:\agendamedica with class loader WebappClassLoader
   context: /agenda-consulta-medica
   delegate: false
