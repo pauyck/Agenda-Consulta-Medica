@@ -1,10 +1,5 @@
 <!doctype html>
-<!--  IMPORTS JAVA -->
-<%@page import="java.util.List"%>
-<%@ page import="java.io.*,java.util.*"%>
-
 <html lang="pt">
-
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -102,19 +97,20 @@
 						<li class="divider"></li>
 						<li><a href="#"><i class="fa fa-fw fa-power-off"></i>
 								Sair</a></li>
-					</ul></li>
-			</ul>
+					</ul>
+			
 			<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
 				<ul class="nav navbar-nav side-nav">
 					<li><a href="index.jsp"><i class="fa fa-fw fa-dashboard"></i>
 							Dashboard</a></li>
-					<li><a href="agendar/agendar.jsp"><i
+					<li><a href="agendar.jsp"><i
 							class="fa fa-fw fa-bar-chart-o"></i> Agendar Consultas</a></li>
-					<li><a href="consultar.jsp"><i class="fa fa-fw fa-table"></i>
+					<li><a href="consultas"><i class="fa fa-fw fa-table"></i>
 							Listar Consultas</a></li>
 					<li><a href="cadastro.jsp"><i class="fa fa-fw fa-edit"></i>
 							Cadastro Geral</a></li>
+				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
 		</nav>

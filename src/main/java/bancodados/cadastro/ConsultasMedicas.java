@@ -45,7 +45,7 @@ public class ConsultasMedicas {
 	}
 
 	public void setTelefone(String telefone) {
-		this.horario = telefone;
+		this.telefone = telefone;
 	}
 	
 	private String horario;

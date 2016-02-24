@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-
+<%@page import="bancodados.cadastro.ConsultasMedicas"%>
+<%@page import="bancodados.cadastro.*"%>
+<%@page import="java.util.List"%>
 <html lang="en">
 
 <head>
@@ -105,12 +107,12 @@
 				<ul class="nav navbar-nav side-nav">
 					<li><a href="index.jsp"><i class="fa fa-fw fa-dashboard"></i>
 							Dashboard</a></li>
-					<li><a href="agendar/agendar.jsp"><i
+					<li><a href="agendar.jsp"><i
 							class="fa fa-fw fa-bar-chart-o"></i> Agendar Consultas</a></li>
-					<li><a href="consultar.jsp"><i class="fa fa-fw fa-table"></i>
+					<li><a href="consultas"><i class="fa fa-fw fa-table"></i>
 							Listar Consultas</a></li>
-					<li><a href="cadastro.jsp"><i class="fa fa-fw fa-edit"></i>
-							Cadastro Geral</a></li>
+					<!--  <li><a href="cadastro.jsp"><i class="fa fa-fw fa-edit"></i>
+							Cadastro Geral</a></li>-->
 			</div>
 			<!-- /.navbar-collapse -->
 		</nav>
@@ -122,11 +124,11 @@
 				<!-- Page Heading -->
 				<div class="row">
 					<div class="col-lg-12">
-						<h1 class="page-header">Tables</h1>
+						<h1 class="page-header">Consultas Cadastradas</h1>
 						<ol class="breadcrumb">
 							<li><i class="fa fa-dashboard"></i> <a href="index.html">Dashboard</a>
 							</li>
-							<li class="active"><i class="fa fa-table"></i> Tables</li>
+							<li class="active"><i class="fa fa-table"></i> Consultas Cadastradas</li>
 						</ol>
 					</div>
 				</div>
@@ -134,46 +136,50 @@
 
 				<div class="row">
 					<div class="col-lg-12">
-						<h2>Consultas Cadastradas</h2>
 						<div class="table-responsive">
+						
+					<%
+						//Obtendo a variÃƒÂ¡vel definida no servlet.	
+            			bancodados.cadastro.ConsultasMedicas consulta = (bancodados.cadastro.ConsultasMedicas) request.getAttribute("consulta");
+            		%>
+            
 							<table class="table table-bordered table-hover">
 								<thead>
 									<tr>
+										<th>ID</th>
 										<th>Nome/Paciente</th>
-										<th>Dia</th>
-										<th>Horário</th>
-										<th>Médico</th>
-										<th>Convênio</th>
 										<th>Telefone</th>
+										<th>Data</th>
+										<th>Horário</th>
+										<th>Observação</th>
+										
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td>José da Silva</td>
-										<td>1265</td>
-										<td>32.3%</td>
-										<td>João</td>
-										<td>Unimed</td>
-										<td>(62) 0000-0000</td>
-									</tr>
-									<tr>
-										<td>João Paulo</td>
-										<td>261</td>
-										<td>33.3%</td>
-										<td>André Morais</td>
-										<td>Ipasgo</td>
-										<td>(62) 0000-0000</td>
-									</tr>
-									<tr>
-										<td>Maria Souza</td>
-										<td>665</td>
-										<td>21.3%</td>
-										<td>Carlos Silva</td>
-										<td>Sem PS</td>
-										<td>(62) 0000-0000</td>
-									</tr>
+									<%
+				List<ConsultasMedicas> consultaMedica = (List<ConsultasMedicas>) request.getAttribute("consultaMedica");
+				if (consultaMedica != null && !consultaMedica.isEmpty()) {
+				for (ConsultasMedicas a : consultaMedica) {
+			%>
+			
+			<tr>
+			<th><%=a.getId()%></th>
+			<td><%=a.getNomePaciente()%></td>
+			<td><%=a.getTelefone()%></td>
+			<td><%=a.getData()%></td>
+			<td><%=a.getHorario()%></td>
+			<td><%=a.getObservacao()%></td>
 
+			<td><a href="CadastroConsulta?id=<%=a.getId()%>&nomePaciente=<%=a.getNomePaciente()%>&telefone=<%=a.getTelefone()%>&data=<%=a.getData()%>&horario=<%=a.getHorario()%>&observacao=<%=a.getObservacao()%>&acao=Alterar">Alterar</a></td>
+			
+			<td><a href="CadastroConsulta?id=<%=a.getId()%>&nomePaciente=&telefone=&data=&horario=&observacao=&acao=Excluir">Excluir</a></td>
+			</tr>
+		<%
+		}
+		}
+		%>
 								</tbody>
+            
 							</table>
 						</div>
 					</div>

@@ -53,43 +53,7 @@
 			</div>
 			<!-- Top Menu Items -->
 			<ul class="nav navbar-right top-nav">
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown"><i class="fa fa-envelope"></i> <b
-						class="caret"></b></a>
-					<ul class="dropdown-menu message-dropdown">
-						<li class="message-preview"><a href="#">
-								<div class="media">
-									<span class="pull-left"> <img class="media-object"
-										src="http://placehold.it/50x50" alt="">
-									</span>
-									<div class="media-body">
-										<h5 class="media-heading">
-											<strong>Paulo Henrique</strong>
-										</h5>
-										<p class="small text-muted">
-											<i class="fa fa-clock-o"></i> Yesterday at 4:32 PM
-										</p>
-										<p>Lorem ipsum dolor sit amet, consectetur...</p>
-									</div>
-								</div>
-						</a></li>
-						<li class="message-footer"><a href="#">Ler todas as
-								mensagens</a></li>
-					</ul></li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown"><i class="fa fa-bell"></i> <b
-						class="caret"></b></a>
-					<ul class="dropdown-menu alert-dropdown">
-						<li><a href="#">Data e Horas:<br>
-							<span class="label label-primary"><%= (new java.util.Date()).toLocaleString()%></span></a>
-						</li>
-
-						<li><a href="#"> <span class="label label-success">Nova
-									consulta oriunda do site</span></a></li>
-
-						<li class="divider"></li>
-						<li><a href="#">Ver todas</a></li>
-					</ul></li>
+				
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown"><i class="fa fa-user"></i> Paulo
 						Henrique<b class="caret"></b></a>
@@ -107,7 +71,7 @@
 			<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
 				<ul class="nav navbar-nav side-nav">
-					<li><a href="../index.jsp"><i class="fa fa-fw fa-dashboard"></i>
+					<li><a href="index.jsp"><i class="fa fa-fw fa-dashboard"></i>
 							Dashboard</a></li>
 					<li><a href="agendar.jsp"><i
 							class="fa fa-fw fa-bar-chart-o"></i> Agendar Consultas</a></li>
@@ -182,11 +146,6 @@
 							<input type="button" class="btn btn-lg btn-warning" onclick="location.href='?'" value="Limpar">
 
 						</form>
-				
-					<%
-					//Obtendo a variÃ¡vel definida no servlet.
-            		bancodados.cadastro.ConsultasMedicas consultaMedica = (bancodados.cadastro.ConsultasMedicas) request.getAttribute("consultaMedica");
-            		%>
 
 					</div>
 
