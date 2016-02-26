@@ -104,12 +104,10 @@
 				<ul class="nav navbar-nav side-nav">
 					<li><a href="index.jsp"><i class="fa fa-fw fa-dashboard"></i>
 							Dashboard</a></li>
-					<li><a href="agendar.jsp"><i
+					<li><a href="agendarconsulta"><i
 							class="fa fa-fw fa-bar-chart-o"></i> Agendar Consultas</a></li>
 					<li><a href="consultas"><i class="fa fa-fw fa-table"></i>
 							Listar Consultas</a></li>
-					<li><a href="cadastro.jsp"><i class="fa fa-fw fa-edit"></i>
-							Cadastro Geral</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -147,7 +145,7 @@
 									</div>
 								</div>
 							</div>
-							<a href="consultar.jsp">
+							<a href="consultas">
 								<div class="panel-footer">
 									<span class="pull-left">Listar Consultas</span> <span
 										class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -170,7 +168,7 @@
 									</div>
 								</div>
 							</div>
-							<a href="#">
+							<a href="agendarconsulta">
 								<div class="panel-footer">
 									<span class="pull-left">Incluir Consulta</span> <span
 										class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -193,7 +191,7 @@
 									</div>
 								</div>
 							</div>
-							<a href="#">
+							<a href="agendarconsulta">
 								<div class="panel-footer">
 									Editar Consultas</span> <span class="pull-right"><i
 										class="fa fa-arrow-circle-right"></i></span>
@@ -216,7 +214,7 @@
 									</div>
 								</div>
 							</div>
-							<a href="#">
+							<a href="agendarconsulta">
 								<div class="panel-footer">
 									<span class="pull-left">Excluir Consulta</span> <span
 										class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

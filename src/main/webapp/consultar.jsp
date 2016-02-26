@@ -107,7 +107,7 @@
 				<ul class="nav navbar-nav side-nav">
 					<li><a href="index.jsp"><i class="fa fa-fw fa-dashboard"></i>
 							Dashboard</a></li>
-					<li><a href="agendar.jsp"><i
+					<li><a href="agendarconsulta"><i
 							class="fa fa-fw fa-bar-chart-o"></i> Agendar Consultas</a></li>
 					<li><a href="consultas"><i class="fa fa-fw fa-table"></i>
 							Listar Consultas</a></li>
@@ -138,10 +138,7 @@
 					<div class="col-lg-12">
 						<div class="table-responsive">
 						
-					<%
-						//Obtendo a variÃ¡vel definida no servlet.	
-            			bancodados.cadastro.ConsultasMedicas consulta = (bancodados.cadastro.ConsultasMedicas) request.getAttribute("consulta");
-            		%>
+					
             
 							<table class="table table-bordered table-hover">
 								<thead>
@@ -169,10 +166,6 @@
 			<td><%=a.getData()%></td>
 			<td><%=a.getHorario()%></td>
 			<td><%=a.getObservacao()%></td>
-
-			<td><a href="CadastroConsulta?id=<%=a.getId()%>&nomePaciente=<%=a.getNomePaciente()%>&telefone=<%=a.getTelefone()%>&data=<%=a.getData()%>&horario=<%=a.getHorario()%>&observacao=<%=a.getObservacao()%>&acao=Alterar">Alterar</a></td>
-			
-			<td><a href="CadastroConsulta?id=<%=a.getId()%>&nomePaciente=&telefone=&data=&horario=&observacao=&acao=Excluir">Excluir</a></td>
 			</tr>
 		<%
 		}
@@ -186,8 +179,6 @@
 
 				</div>
 				<!-- /.row -->
-
-
 
 
 

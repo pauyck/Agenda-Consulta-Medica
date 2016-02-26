@@ -142,12 +142,11 @@
 				<ul class="nav navbar-nav side-nav">
 					<li><a href="index.jsp"><i class="fa fa-fw fa-dashboard"></i>
 							Dashboard</a></li>
-					<li><a href="agendar/agendar.jsp"><i
+					<li><a href="agendarconsulta"><i
 							class="fa fa-fw fa-bar-chart-o"></i> Agendar Consultas</a></li>
-					<li><a href="consultar.jsp"><i class="fa fa-fw fa-table"></i>Listar
+					<li><a href="consultas"><i class="fa fa-fw fa-table"></i>Listar
 							Consultas</a></li>
-					<li><a href="cadastro.jsp"><i class="fa fa-fw fa-edit"></i>Cadastro
-							Geral</a></li>
+					
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->

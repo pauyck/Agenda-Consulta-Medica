@@ -9,7 +9,13 @@ import java.util.List;
 
 public class ConsultasMedicas {
 	private String id;
+	private String nomePaciente;
+	private String data;
+	private String telefone;
+	private String horario;
+	private String observacao;
 
+	
 	public String getId() {
 		return id;
 	}
@@ -18,8 +24,6 @@ public class ConsultasMedicas {
 		this.id = id;
 	}
 	
-	private String nomePaciente;
-
 	public String getNomePaciente() {
 		return nomePaciente;
 	}
@@ -28,8 +32,6 @@ public class ConsultasMedicas {
 		this.nomePaciente = nomePaciente;
 	}
 	
-	private String data;
-
 	public String getData() {
 		return data;
 	}
@@ -38,7 +40,6 @@ public class ConsultasMedicas {
 		this.data = data;
 	}
 
-	private String telefone;
 
 	public String getTelefone() {
 		return telefone;
@@ -48,7 +49,6 @@ public class ConsultasMedicas {
 		this.telefone = telefone;
 	}
 	
-	private String horario;
 
 	public String getHorario() {
 		return horario;
@@ -58,8 +58,6 @@ public class ConsultasMedicas {
 		this.horario = horario;
 	}
 
-	private String observacao;
-
 	public String getObservacao() {
 		return observacao;
 	}
@@ -68,14 +66,13 @@ public class ConsultasMedicas {
 		this.observacao = observacao;
 	}
 	
-
 	public void incluir() {
 		try {
 			// ObtÃ©m a conexÃ£o.
 			String url = "jdbc:derby:C:\\agendamedica;create=true";
 			Connection conn = DriverManager.getConnection(url);
 			// Cria a sentenÃ§a SQL.
-			String sql = "insert into ordemDeServico (id, nomePaciente, telefone, data, horario, observacao) values (?, ?, ?, ?, ?, ?)";
+			String sql = "insert into agendamedica (id, nomePaciente, telefone, data, horario, observacao) values (?, ?, ?, ?, ?, ?)";
 			// ObtÃ©m referÃªncia para uma sentenÃ§a SQL.
 			PreparedStatement prepareStatement = conn.prepareStatement(sql);
 			prepareStatement.setString(1, id);
@@ -96,25 +93,31 @@ public class ConsultasMedicas {
 		}
 	}
 	
-	public void alterar(String id1, String nomePaciente1, String telefone1, String data1, String horario1, String observacao1) {
+	public void alterar(String id, String nomePaciente, String data, String horario, String telefone,String observacao){
 		try {
-			// ObtÃ©m a conexÃ£o.
+			// Obtém a conexão.
 			String url = "jdbc:derby:C:\\agendamedica";
+			
 			Connection conn = DriverManager.getConnection(url);
-			// Cria a sentença SQL.
-			String sql = "update agendamedica set nomePaciente=?, telefone=?, data=?, horario=?, observacao=? where id=?";
+
+			// Cria a sentença SQL.	
+			String sql = "update agendamedica set nomePaciente=?, data=?, horario=?, telefone=?, observacao=? where id=?";
+			
 			// Obtém referência para uma sentença SQL.
 			PreparedStatement prepareStatement = conn.prepareStatement(sql);
 			prepareStatement.setString(1, id);
 			prepareStatement.setString(2, nomePaciente);
-			prepareStatement.setString(3, telefone);
-			prepareStatement.setString(4, data);
-			prepareStatement.setString(5, horario);
+			prepareStatement.setString(3, data);
+			prepareStatement.setString(4, horario);
+			prepareStatement.setString(5, telefone);
 			prepareStatement.setString(6, observacao);
+
 			// Executa a instrução SQL.
 			prepareStatement.executeUpdate();
+			
 			// Fecha a sentença.
 			prepareStatement.close();
+			
 			// Fecha a conexão.
 			conn.close();
 		} catch (Throwable e) {

@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
 <%@page import="bancodados.cadastro.ConsultasMedicas"%>
+<%@page import="bancodados.cadastro.*"%>
 <%@page import="java.util.List"%>
-
+<html lang="en">
 <head>
-
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,17 +13,17 @@
 <title>SB Admin - Bootstrap Admin Template</title>
 
 <!-- Bootstrap Core CSS -->
-<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom CSS -->
-<link href="../css/sb-admin.css" rel="stylesheet">
+<link href="css/sb-admin.css" rel="stylesheet">
 
 <!-- Morris Charts CSS -->
-<link href="../css/plugins/morris.css" rel="stylesheet">
+<link href="css/plugins/morris.css" rel="stylesheet">
 
 <!-- Custom Fonts -->
-<link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet"
-	type="../text/css">
+<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"
+	type="text/css">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -49,7 +48,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="../index.jsp">AG.CONSULTA</a>
+				<a class="navbar-brand" href="index.jsp">AG.CONSULTA</a>
 			</div>
 			<!-- Top Menu Items -->
 			<ul class="nav navbar-right top-nav">
@@ -73,12 +72,11 @@
 				<ul class="nav navbar-nav side-nav">
 					<li><a href="index.jsp"><i class="fa fa-fw fa-dashboard"></i>
 							Dashboard</a></li>
-					<li><a href="agendar.jsp"><i
+					<li><a href="agendarconsulta"><i
 							class="fa fa-fw fa-bar-chart-o"></i> Agendar Consultas</a></li>
-					<li><a href="../consultar.jsp"><i class="fa fa-fw fa-table"></i>
+					<li><a href="consultas"><i class="fa fa-fw fa-table"></i>
 							Listar Consultas</a></li>
-					<li><a href="../cadastro.jsp"><i class="fa fa-fw fa-edit"></i>
-							Cadastro Geral</a></li>
+					
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -109,35 +107,38 @@
 
 						<form role="form">
 							<div class="form-group">
-								<label>ID Cadastro:</label> <input class="form-control" value="${param.id}">
+								<label>ID Cadastro:</label> 
+							<input class="form-control" name="id" value="${param.id}">
 								<p class="help-block">Digite o nome completo do paciente</p>
 							</div>
 
 							<div class="form-group">
-								<label>Nome do Paciente</label> <input class="form-control" value="${param.nomePaciente}">
+								<label>Nome do Paciente</label> 
+								<input class="form-control" name="nomePaciente" value="${param.nomePaciente}">
 								<p class="help-block">Digite o nome completo do paciente</p>
 							</div>
 
 							<div class="form-group">
-								<label>Telefone:</label> <input class="form-control"
-									placeholder="(DDD) 0000-0000"  value="${param.telefone}">
+								<label>Telefone:</label> 
+								<input class="form-control"	placeholder="(DDD) 0000-0000" name="telefone" value="${param.telefone}">
 								<p class="help-block">Digite o telefone no formato acima</p>
 							</div>
 							
 							<div class="form-group">
-								<label>Data:</label> <input class="form-control"
-									placeholder="00/00/2016"  value="${param.data}">
+								<label>Data:</label> 
+								<input class="form-control" placeholder="00/00/2016"  name="data" value="${param.data}">
 							</div>
 
 							<div class="form-group">
-								<label>Horário</label> <input class="form-control"
-									placeholder="00:00"  value="${param.horario}">
+								<label>Horário</label> 
+								<input class="form-control" placeholder="00:00" name="horario" value="${param.horario}">
 							</div>
 							
 
 							<div class="form-group">
 								<label>Observação</label>
-								<textarea class="form-control" rows="3" value="${param.observacao}"></textarea>
+								<!-- <textarea class="form-control" rows="3" name="observacao" value="${param.observacao}"></textarea> -->
+								<input class="form-control" placeholder="Exemplo: Convênio" name="observacao" value="${param.observacao}">
 							</div>
 
 							<input type="submit" class="btn btn-lg btn-success" name="acao" value="Incluir">
@@ -146,12 +147,15 @@
 							<input type="button" class="btn btn-lg btn-warning" onclick="location.href='?'" value="Limpar">
 
 						</form>
+						
+						
 
 					</div>
 
 				</div>
 				<!-- /.row -->
-
+				
+	
 			</div>
 			<!-- /.container-fluid -->
 

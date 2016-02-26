@@ -8,11 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(value = "/consultas")
-public class CadastroConsulta extends HttpServlet {
+@WebServlet(value = "/agendarconsulta")
+public class AgendaConsulta extends HttpServlet {
 
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+
 		String paramId = req.getParameter("id");
 		String id = paramId == null ? "" : paramId;
 		
@@ -30,6 +30,10 @@ public class CadastroConsulta extends HttpServlet {
 		
 		String paramObservacao = req.getParameter("observacao");
 		String observacao = paramObservacao == null ? "" : paramObservacao;
+		
+		String paramAcao = req.getParameter("acao");
+		String acao = paramAcao == null ? "" : paramAcao;
+		
 
 		ConsultasMedicas consulta = new ConsultasMedicas();
 		consulta.setId(id);
@@ -38,16 +42,31 @@ public class CadastroConsulta extends HttpServlet {
 		consulta.setHorario(horario);
 		consulta.setTelefone(telefone);
 		consulta.setObservacao(observacao);
+
+		
+		if (acao.equals("Incluir")) {
+			if (!id.equals("")) {
+				consulta.incluir();
+			}
+		} else if (acao.equals("Alterar")) {
+			if (!id.equals("")) {
+				consulta.alterar(id, nomePaciente, data, horario, telefone, observacao);
+			}
+		} else if (acao.equals("Excluir")) {
+			if (!id.equals("")) {
+				consulta.excluir(id);
+			}
+		}
+
 		
 		req.setAttribute("consultaMedica", consulta); // Passando um objeto para o JSP.
-		
+
 		List<ConsultasMedicas> consultaMedica = ConsultasMedicas.listar();
 		
 		req.setAttribute("consultaMedica", consultaMedica); // Passando uma coleção para o JSP.
 
 		// Chamar o JSP apenas para mostrar o resultado.
-		req.getRequestDispatcher("/consultar.jsp").forward(req, resp);
-		
+		req.getRequestDispatcher("/agendar.jsp").forward(req, resp);
 	}
 
 }
